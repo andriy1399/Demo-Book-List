@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "json-server": "^0.16.3",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -20,8 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "json": "json-server -w db.json -p 3001"
   },
   "eslintConfig": {
     "extends": [
