@@ -1,8 +1,13 @@
 import React from 'react';
 import '../styles/App.scss';
+import { Header } from './Header';
 
 const App: React.FC = () => {
-  return <div className="app">Project was created</div>;
+  return (
+    <div >
+      <Header />
+    </div>
+  );
 };
 
 export default App;
