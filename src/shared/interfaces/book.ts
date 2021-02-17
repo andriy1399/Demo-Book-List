@@ -3,4 +3,5 @@ export interface IBook {
   author: string;
   category: string;
   ISBN: string;
+  id?: number;
 }

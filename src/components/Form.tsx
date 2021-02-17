@@ -8,6 +8,7 @@ import {
 import '../styles/form.scss';
 import validate from '../shared/validation/validate';
 import { IBook } from '../shared/interfaces/book';
+import { useHistory } from 'react-router-dom';
 
 interface FieldProps {
   id: string;
@@ -32,8 +33,12 @@ const renderInput = (
 };
 
 const Form: React.FC<any> = props => {
+  const history = useHistory();
+
   const submitForm = (book: any) => {
     props.onSubmit(book);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    history.push('/');
   };
   return (
     <div className="form">
@@ -59,7 +64,7 @@ const Form: React.FC<any> = props => {
         <Field name="ISBN" label="ISBN" id="ISBN" component={renderInput} />
 
         <button type="submit" className="btn btn-dark">
-          Add book
+          Save
         </button>
       </form>
     </div>
