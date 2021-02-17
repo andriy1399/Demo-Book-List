@@ -1,28 +1,37 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
-export const Header: React.FC = () => {
+const Header: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        <a className="navbar-brand" href="/">
+        <Link to="/" className="navbar-brand">
           Book List
-        </a>
+        </Link>
         <button className="navbar-toggler" type="button">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div
-          className="collapse navbar-collapse d-flex justify-content-end"
-        >
+        <div className="collapse navbar-collapse d-flex justify-content-end">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <NavLink
+                to="/"
+                className="nav-link "
+                activeClassName="active"
+                exact
+              >
                 Dashboard
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <NavLink
+                to="/books/create"
+                className="nav-link"
+                activeClassName="active"
+                exact
+              >
                 Add a Book
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -30,3 +39,5 @@ export const Header: React.FC = () => {
     </nav>
   );
 };
+
+export default Header;

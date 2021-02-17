@@ -1,12 +1,25 @@
-import React from 'react';
 import '../styles/App.scss';
-import { Header } from './Header';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Header from './Header';
+import BooksDashboard from './books/BookDashboard';
+import BooksCreate from './books/BookCreate';
+import BooksDelete from './books/BookDelete';
+import BooksEdit from './books/BookEdit';
 
 const App: React.FC = () => {
   return (
-    <div >
+    <BrowserRouter>
       <Header />
-    </div>
+      <div className="container">
+        <Switch>
+          <Route path="/" component={BooksDashboard} exact></Route>
+          <Route path="/books/create" component={BooksCreate}></Route>
+          <Route path="/books/delete/:id" component={BooksDelete}></Route>
+          <Route path="/books/edit/:id" component={BooksEdit}></Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 };
 
