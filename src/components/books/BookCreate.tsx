@@ -12,7 +12,7 @@ const BookCreate: React.FC<CreateBook> = props => {
   return (
     <div className="m-auto">
       <div className="mt-4">
-        <h2 className="text-center">Add Book to Dashboard</h2>
+        <h2 className="text-center">Add Book</h2>
       </div>
       <Form onSubmit={onSubmit} />
     </div>
