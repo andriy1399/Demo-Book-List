@@ -9,10 +9,11 @@ const portalElement = (children: JSX.Element) => {
 interface IModalParams {
   title: string;
   actions: JSX.Element;
-  onDismiss: () => void
+  onDismiss: () => void;
+  content: JSX.Element;
 }
 
-const modalContent = ({ title, actions, onDismiss }: IModalParams) => (
+const modalContent = ({ title, actions, onDismiss, content }: IModalParams) => (
   <div
     className="modal d-block"
     style={{ backgroundColor: 'rgba(0, 0, 0, .5)' }}
@@ -32,12 +33,8 @@ const modalContent = ({ title, actions, onDismiss }: IModalParams) => (
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div className="modal-footer">
-         {actions}
-        </div>
+        <div className="modal-body">{content}</div>
+        <div className="modal-footer">{actions}</div>
       </div>
     </div>
   </div>

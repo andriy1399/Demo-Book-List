@@ -21,8 +21,8 @@ const BooksDelete: React.FC<TDeleteBook & RouteComponentProps<MatchParams>> = ({
   const renderActions = () => {
     const removeBook = () => {
       deleteBook(+match.params.id);
-      history.push('/')
-    }
+      history.push('/');
+    };
     return (
       <React.Fragment>
         <Link
@@ -33,14 +33,23 @@ const BooksDelete: React.FC<TDeleteBook & RouteComponentProps<MatchParams>> = ({
         >
           Cancel
         </Link>
-        <button
-          type="button"
-          className="btn btn-danger"
-          onClick={removeBook}
-        >
+        <button type="button" className="btn btn-danger" onClick={removeBook}>
           Delete
         </button>
       </React.Fragment>
+    );
+  };
+
+  const renderContent = () => {
+    return (
+      <div>
+        <p>
+          <b>Title:</b> {book.title}
+        </p>
+        <p>
+          <b>Author:</b> {book.author}
+        </p>
+      </div>
     );
   };
   return (
@@ -48,6 +57,7 @@ const BooksDelete: React.FC<TDeleteBook & RouteComponentProps<MatchParams>> = ({
       title="Delete this Book?"
       onDismiss={() => history.push('/')}
       actions={renderActions()}
+      content={renderContent()}
     />
   );
 };
