@@ -1,18 +1,11 @@
 {
   "books": [
     {
-      "title": "asdf",
-      "author": "asdf",
-      "category": "asdf",
-      "ISBN": "asdf",
+      "title": "11",
+      "author": "asdf11",
+      "category": "1",
+      "ISBN": "1",
       "id": 1
-    },
-    {
-      "title": "asdf",
-      "author": "asdg",
-      "category": "asg",
-      "ISBN": "sssssssssssss",
-      "id": 2
     },
     {
       "title": "s",
@@ -36,25 +29,11 @@
       "id": 5
     },
     {
-      "title": "asdf",
-      "author": "asdf",
-      "category": "asdf",
-      "ISBN": "asdf",
+      "title": "asdf!!!!!!!!",
+      "author": "asdf!!!!!!!!!!!!!",
+      "category": "asdf!!!!!!!!!!!!",
+      "ISBN": "asdf11111111111111",
       "id": 6
-    },
-    {
-      "title": "asdf",
-      "author": "asdf",
-      "category": "asdf",
-      "ISBN": "asdf",
-      "id": 7
-    },
-    {
-      "title": "s",
-      "author": "sssssssssss",
-      "category": "ssssssssssssss",
-      "ISBN": "sssssssssssssss",
-      "id": 8
     }
   ]
 }

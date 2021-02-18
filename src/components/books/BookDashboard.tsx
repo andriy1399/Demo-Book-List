@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { fetchBooks } from '../../shared/actions/index';
 import { IBook } from '../../shared/interfaces/book';
+import { Link } from 'react-router-dom';
 
-const BooksDashboard: React.FC<TFetchBooks> = ({ books, fetchBooks }) => {
+const BookDashboard: React.FC<TFetchBooks> = ({ books, fetchBooks }) => {
   useEffect(() => {
     fetchBooks();
   }, [fetchBooks]);
@@ -17,12 +18,20 @@ const BooksDashboard: React.FC<TFetchBooks> = ({ books, fetchBooks }) => {
           <td className="p-3">{book.ISBN}</td>
           <td className="p-3">
             <div className="d-flex justify-content-around ">
-              <button type="button" className="btn btn-warning">
+              <Link
+                to={`/books/edit/${book.id}`}
+                type="button"
+                className="btn btn-warning"
+              >
                 Edit
-              </button>
-              <button type="button" className="btn btn-danger">
+              </Link>
+              <Link
+                to={`/books/delete/${book.id}`}
+                type="button"
+                className="btn btn-danger"
+              >
                 Delete
-              </button>
+              </Link>
             </div>
           </td>
         </tr>
@@ -32,13 +41,23 @@ const BooksDashboard: React.FC<TFetchBooks> = ({ books, fetchBooks }) => {
 
   return (
     <table className="table table-hover table-dark mt-3">
-      <thead >
+      <thead>
         <tr>
-          <th className="p-3" scope="col">Book title</th>
-          <th className="p-3" scope="col">Author name</th>
-          <th className="p-3" scope="col">Category</th>
-          <th className="p-3" scope="col">ISBN</th>
-          <th className="p-3" scope="col">Actions</th>
+          <th className="p-3" scope="col">
+            Book title
+          </th>
+          <th className="p-3" scope="col">
+            Author name
+          </th>
+          <th className="p-3" scope="col">
+            Category
+          </th>
+          <th className="p-3" scope="col">
+            ISBN
+          </th>
+          <th className="p-3" scope="col">
+            Actions
+          </th>
         </tr>
       </thead>
       <tbody>{renderBooksTr()}</tbody>
@@ -53,4 +72,4 @@ const mapPropsToState = (state: { books: { [key: number]: IBook } }) => {
 const connector = connect(mapPropsToState, { fetchBooks });
 type TFetchBooks = ConnectedProps<typeof connector>;
 
-export default connector(BooksDashboard);
+export default connector(BookDashboard);

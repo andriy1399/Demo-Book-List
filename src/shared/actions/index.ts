@@ -40,7 +40,7 @@ export const fetchBook = (id: number) => async (
 export const editBook = (id: number, body: IBook) => async (
   dispatch: Dispatch<IEditBookAction>
 ): Promise<void> => {
-  const response = await fakeRestApi.patch(`/books/${id}`, body);
+  const response = await fakeRestApi.put(`/books/${id}`, body);
   dispatch({ type: EDIT_BOOK, payload: response.data });
 };
 

@@ -1,11 +1,63 @@
-import React from 'react'
-
-const BooksDelete: React.FC= () => {
-  return (
-    <div>
-      BooksDelete
-    </div>
-  )
+import React, { useEffect } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { IBook } from '../../shared/interfaces/book';
+import Modal from '../Modal';
+import { deleteBook, fetchBook } from '../../shared/actions/index';
+import { RouteComponentProps, Link, useHistory } from 'react-router-dom';
+interface MatchParams {
+  id: string;
 }
+const BooksDelete: React.FC<TDeleteBook & RouteComponentProps<MatchParams>> = ({
+  deleteBook,
+  book,
+  fetchBook,
+  match,
+}) => {
+  const history = useHistory();
+  useEffect(() => {
+    fetchBook(+match.params.id);
+  }, [fetchBook, match.params.id]);
 
-export default BooksDelete;
+  const renderActions = () => {
+    const removeBook = () => {
+      deleteBook(+match.params.id);
+      history.push('/')
+    }
+    return (
+      <React.Fragment>
+        <Link
+          to="/"
+          type="button"
+          className="btn btn-dark"
+          data-dismiss="modal"
+        >
+          Cancel
+        </Link>
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={removeBook}
+        >
+          Delete
+        </button>
+      </React.Fragment>
+    );
+  };
+  return (
+    <Modal
+      title="Delete this Book?"
+      onDismiss={() => history.push('/')}
+      actions={renderActions()}
+    />
+  );
+};
+const mapPropsToState = (
+  state: { books: { [key: number]: IBook } },
+  ownProps: any
+) => {
+  return { book: state.books[ownProps.match.params.id] };
+};
+
+const connector = connect(mapPropsToState, { deleteBook, fetchBook });
+type TDeleteBook = ConnectedProps<typeof connector>;
+export default connector(BooksDelete);

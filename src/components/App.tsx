@@ -2,10 +2,10 @@ import '../styles/App.scss';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './Header';
-import BooksDashboard from './books/BookDashboard';
+import BookDashboard from './books/BookDashboard';
 import BookCreate from './books/BookCreate';
 import BooksDelete from './books/BookDelete';
-import BooksEdit from './books/BookEdit';
+import BookEdit from './books/BookEdit';
 
 const App: React.FC = () => {
   return (
@@ -13,10 +13,10 @@ const App: React.FC = () => {
       <Header />
       <div className="container">
         <Switch>
-          <Route path="/" component={BooksDashboard} exact></Route>
+          <Route path="/" component={BookDashboard} exact></Route>
           <Route path="/books/create" component={BookCreate}></Route>
           <Route path="/books/delete/:id" component={BooksDelete}></Route>
-          <Route path="/books/edit/:id" component={BooksEdit}></Route>
+          <Route path="/books/edit/:id" component={BookEdit}></Route>
         </Switch>
       </div>
     </BrowserRouter>
