@@ -1,6 +1,17 @@
 .form {
   width: 500px;
   margin: 2em auto;
+}
 
-  
+
+@media screen and (max-width: 600px) {
+  .form {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .form {
+    width: 290px;
+  }
 }

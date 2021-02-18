@@ -12,23 +12,23 @@ const BookDashboard: React.FC<TFetchBooks> = ({ books, fetchBooks }) => {
     return books.map(book => {
       return (
         <tr key={book.id}>
-          <th className="p-3">{book.title}</th>
+          <td className="p-3">{book.title}</td>
           <td className="p-3">{book.author}</td>
           <td className="p-3">{book.category}</td>
           <td className="p-3">{book.ISBN}</td>
-          <td className="p-3">
+          <td className="p-3" style={{minWidth: '160px'}}>
             <div className="d-flex justify-content-around ">
               <Link
                 to={`/books/edit/${book.id}`}
                 type="button"
-                className="btn btn-warning"
+                className="btn btn-warning "
               >
                 Edit
               </Link>
               <Link
                 to={`/books/delete/${book.id}`}
                 type="button"
-                className="btn btn-danger"
+                className="btn btn-danger "
               >
                 Delete
               </Link>
@@ -40,28 +40,30 @@ const BookDashboard: React.FC<TFetchBooks> = ({ books, fetchBooks }) => {
   };
 
   return (
-    <table className="table table-hover table-dark mt-3">
-      <thead>
-        <tr>
-          <th className="p-3" scope="col">
-            Book title
-          </th>
-          <th className="p-3" scope="col">
-            Author name
-          </th>
-          <th className="p-3" scope="col">
-            Category
-          </th>
-          <th className="p-3" scope="col">
-            ISBN
-          </th>
-          <th className="p-3" scope="col">
-            Actions
-          </th>
-        </tr>
-      </thead>
-      <tbody>{renderBooksTr()}</tbody>
-    </table>
+    <div className="table-responsive mt-3">
+      <table className="table table-hover table-dark ">
+        <thead>
+          <tr>
+            <th className="p-3" scope="col">
+              Book title
+            </th>
+            <th className="p-3" scope="col">
+              Author name
+            </th>
+            <th className="p-3" scope="col">
+              Category
+            </th>
+            <th className="p-3" scope="col">
+              ISBN
+            </th>
+            <th className="p-3" scope="col">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>{renderBooksTr()}</tbody>
+      </table>
+    </div>
   );
 };
 
