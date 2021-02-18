@@ -1,3 +1,18 @@
 {
-  "books": []
+  "books": [
+    {
+      "ISBN": "223",
+      "author": "asdf",
+      "title": "123",
+      "category": "Comic Book",
+      "id": 1
+    },
+    {
+      "category": "Classics",
+      "ISBN": "214",
+      "author": "asdf",
+      "title": "124",
+      "id": 2
+    }
+  ]
 }
