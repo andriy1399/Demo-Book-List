@@ -1,32 +1,3 @@
 {
-  "books": [
-    {
-      "title": "11",
-      "author": "asdf11",
-      "category": "1",
-      "ISBN": "1",
-      "id": 1
-    },
-    {
-      "title": "s",
-      "author": "ssssssssss",
-      "category": "sssssssssssss",
-      "ISBN": "sssssssssssss",
-      "id": 3
-    },
-    {
-      "title": "asdf!!!!!!!!",
-      "author": "asdf!!!!!!!!!!!!!",
-      "category": "asdf!!!!!!!!!!!!",
-      "ISBN": "asdf11111111111111",
-      "id": 6
-    },
-    {
-      "title": "Some book",
-      "author": "some author",
-      "category": "some category",
-      "ISBN": "some isbn",
-      "id": 7
-    }
-  ]
+  "books": []
 }
